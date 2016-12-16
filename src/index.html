@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="./static/images/j-box.png" />
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+  <!--
+  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kelly+Slab" rel="stylesheet">
+  -->
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+  
+  <title>JS Bin</title>
+</head>
+<body>
+  <main>
+    <div id='mapKeeper'></div>
+
+    <div class='container'>
+      <h1 class="container__title">J-Box</h1>
+    
+      <img class='container__logo' src='./static/images/j-box.png' alt='J-Box Logo'>
+
+      <div id="clock">
+
+        <div class="clock__block">
+          <div class="unit">
+            <span class="unit__time unit__time-days"></span>
+            <div class="unit__title">ДНЕЙ</div>
+          </div>
+          <div class="unit">
+            <span class="unit__time unit__time-hours"></span>
+            <div class="unit__title">ЧАСОВ</div>
+          </div>
+        </div>
+
+        <div class="clock__block">
+          <div class="unit">
+            <span class="unit__time unit__time-minutes"></span>
+            <div class="unit__title">МИНУТ</div>
+          </div>
+          <div class="unit">
+            <span class="unit__time unit__time-seconds"></span>
+            <div class="unit__title">СЕКУНД</div>
+          </div>
+        </div>
+
+      </div>
+
+      <span class='frase'>НАША МОБИЛЬНАЯ КОМНАТА СКОРО ПОЯВИТСЯ В ГОРОДЕ</span>
+
+      <div class="container__form">
+        <input class="custInp" type="text" autocomplite="off" spellcheck="false" placeholder="E-MAIL"/>
+        <div class="button">НЕ ПРОПУСТИТЬ СОБЫТИЕ</div>
+      </div>
+
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
