@@ -13,7 +13,7 @@
   <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3xJ3Mri1HRY6hsUtyXEptNltsdUdclhQ">
     </script>
-  <script type="text/javascript" src="tile.stamen.js?v1.3.0"></script>
+  <script type="text/javascript" src="tile.stamen.js"></script>
   <script type="text/javascript" src="vanilla-masker.min.js"></script>
   <script type="text/javascript" src="axios.min.js"></script>
 
@@ -81,15 +81,33 @@
         <div class="button subscr__button">ПОДПИСАТЬСЯ</div>
       </div>
 
+      <div class='message subscr-acception hide'>
+        <span>ВЫ УСПЕШНО ПОДПИСАЛИСЬ НА НОВОСТИ ПРОЕКТА!</span>
+      </div>
+
+      <div class='message subscr-rejection hide'>
+        <span>ПРОИЗОШЛА ОШИБКА!<br>ПОПРОБУЙТЕ ПОЗЖЕ.</span>
+      </div>
+
     </div>
 
     <div id='mapKeeper'></div>
 
     <div class='container'>
+      
+      <div class="main">
+        <h1 class="main__title">J-Box</h1>
+      
+        <img class='main__logo' src='./static/images/j-box.png' alt='J-Box Logo'>
 
-      <h1 class="container__title">J-Box</h1>
-    
-      <img class='container__logo' src='./static/images/j-box.png' alt='J-Box Logo'>
+        <!-- <div id="drop" class="drop">
+          <div class="drop__shape"></div>
+          <div class="drop__text drop__text-q">?</div>
+          <div class="drop__text drop__text-x">X</div>
+        </div> -->
+      </div>
+
+
       
       <div id='app__caller' class="button caller-app">УЧАСТВОВАТЬ</div>
 

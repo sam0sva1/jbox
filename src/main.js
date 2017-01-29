@@ -54,9 +54,12 @@ initializeClock('clock', deadline);
 //initializeMap('mapKeeper');
 
 var shadow = document.getElementById('shadow');
+var drop = document.getElementById('drop');
 var application = document.getElementById('application');
 var appAcception = document.querySelector('.app-acception');
 var appRejection = document.querySelector('.app-rejection');
+var subscrAcception = document.querySelector('.subscr-acception');
+var subscrRejection = document.querySelector('.subscr-rejection');
 var subscription = document.getElementById('subscription');
 var forms = {
   shadow: {},
@@ -86,13 +89,32 @@ forms.application.accept = function() {
 }
 forms.application.reject = function() {
   forms.application.hide();
-  forms.application.clear();
+  //forms.application.clear();
   appRejection.classList.remove('hide');
   setTimeout(function() {
     appRejection.classList.add('hide');
     forms.shadow.hide();
   }, 3000);
 }
+
+forms.subscription.accept = function() {
+  forms.subscription.hide();
+  forms.subscription.clear();
+  subscrAcception.classList.remove('hide');
+  setTimeout(function() {
+    subscrAcception.classList.add('hide');
+    forms.shadow.hide();
+  }, 3000);
+}
+forms.subscription.reject = function() {
+  forms.subscription.hide();
+  subscrRejection.classList.remove('hide');
+  setTimeout(function() {
+    subscrRejection.classList.add('hide');
+    forms.shadow.hide();
+  }, 3000);
+}
+
 forms.application.clear = function() {
   document.querySelector('.app__input-name').value = '';
   document.querySelector('.app__input-email').value = '';
@@ -163,6 +185,7 @@ function onAppSenderClickHandler() {
     phone: phone,
     description: descr
   }).then(function(response) {
+    console.log(response.status);
     if(response.status === 200) {
       forms.application.accept();
     }
@@ -172,7 +195,30 @@ function onAppSenderClickHandler() {
   });
 }
 function onSubscrSenderClickHandler() {
-  
+  var email = document.querySelector('.subscr__input-email').value;
+  axios.post('/subscriber/add', {
+    email: email
+  }).then(function(response) {
+    if(response.status === 200) {
+      forms.subscription.accept();
+    }
+  }).catch(function(error) {
+    console.log(error);
+    forms.subscription.reject();
+  });
 }
 
+function onDropClickHandler() {
+  drop.classList.toggle('drop_acted');
+}
+//drop.addEventListener('click', onDropClickHandler);
+
 appSender.addEventListener('click', onAppSenderClickHandler);
+subscrSender.addEventListener('click', onSubscrSenderClickHandler);
+
+
+
+
+
+
+

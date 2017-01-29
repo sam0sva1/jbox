@@ -11,6 +11,15 @@ import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 
+mongoose.Promise = bluebird;
+mongoose.connect(config.database, err => {
+	if(err) {
+		throw err
+	}
+
+	console.log('Mongo connected');
+});
+
 app.use(express.static('./src'));
 
 app.listen(config.port, function(error) {
