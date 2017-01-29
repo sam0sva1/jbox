@@ -4,27 +4,112 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="./static/images/j-box.png" />
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+  <link rel="stylesheet" type="text/css" href="reset.css">
   <!--
   <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Kelly+Slab" rel="stylesheet">
   -->
   <link rel="stylesheet" href="main.css">
-  <script async defer
+  <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3xJ3Mri1HRY6hsUtyXEptNltsdUdclhQ">
     </script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
-  
+  <script type="text/javascript" src="tile.stamen.js"></script>
+  <script type="text/javascript" src="vanilla-masker.min.js"></script>
+  <script type="text/javascript" src="axios.min.js"></script>
+
   <title>J-Box</title>
 </head>
 <body>
   <main>
+
+    <div id='shadow' class='shadow hide'>
+
+      <div id='application' class='application hide'>
+        <div id='app__close' class='button-close app__close'>X</div>
+        <input 
+          class="custInp app__input app__input-name" 
+          type="text" 
+          autocomplite="off" 
+          spellcheck="false" 
+          placeholder="Имя"
+        />
+        <br>
+        <input 
+          class="custInp app__input app__input-email" 
+          type="text" 
+          autocomplite="off" 
+          spellcheck="false" 
+          placeholder="Почта"
+        />
+        <br>
+        <input 
+          class="custInp app__input app__input-phone" 
+          type="tel" 
+          autocomplite="off" 
+          spellcheck="false" 
+          placeholder="Телефон (***)***-**-**"
+        />
+        <br>
+        <textarea 
+          class='area app__area app__area-descr' 
+          name="description" 
+          id="desc"
+          placeholder='Краткое описание'
+          rows="5" 
+        ></textarea>
+
+        <div class="button app__button">ПОДАТЬ ЗАЯВКУ</div>
+      </div>
+
+      <div class='message app-acception hide'>
+        <span>ВАША ЗАЯВКА ПРИНЯТА!</span>
+      </div>
+
+      <div class='message app-rejection hide'>
+        <span>ПРОИЗОШЛА ОШИБКА!<br>ПОПРОБУЙТЕ ПОЗЖЕ.</span>
+      </div>
+
+      <div id='subscription' class="subscription hide">
+        <div id='subscr__close' class='button-close subscr__close'>X</div>
+        <input 
+          class="custInp subscr__input subscr__input-email" 
+          type="text" 
+          autocomplite="off" 
+          spellcheck="false" 
+          placeholder="E-MAIL"
+        />
+        <div class="button subscr__button">ПОДПИСАТЬСЯ</div>
+      </div>
+
+      <div class='message subscr-acception hide'>
+        <span>ВЫ УСПЕШНО ПОДПИСАЛИСЬ НА НОВОСТИ ПРОЕКТА!</span>
+      </div>
+
+      <div class='message subscr-rejection hide'>
+        <span>ПРОИЗОШЛА ОШИБКА!<br>ПОПРОБУЙТЕ ПОЗЖЕ.</span>
+      </div>
+
+    </div>
+
     <div id='mapKeeper'></div>
 
     <div class='container'>
-      <h1 class="container__title">J-Box</h1>
-    
-      <img class='container__logo' src='./static/images/j-box.png' alt='J-Box Logo'>
+      
+      <div class="main">
+        <h1 class="main__title">J-Box</h1>
+      
+        <img class='main__logo' src='./static/images/j-box.png' alt='J-Box Logo'>
+
+        <!-- <div id="drop" class="drop">
+          <div class="drop__shape"></div>
+          <div class="drop__text drop__text-q">?</div>
+          <div class="drop__text drop__text-x">X</div>
+        </div> -->
+      </div>
+
+
+      
+      <div id='app__caller' class="button caller-app">УЧАСТВОВАТЬ</div>
 
       <div id="clock">
 
@@ -53,19 +138,19 @@
       </div>
 
       <span class='frase'>НАША МОБИЛЬНАЯ КОМНАТА СКОРО ПОЯВИТСЯ В ГОРОДЕ</span>
+      
 
-      <div class="container__form">
-        <input class="custInp" type="text" autocomplite="off" spellcheck="false" placeholder="E-MAIL"/>
-        <div class="button">НЕ ПРОПУСТИТЬ СОБЫТИЕ</div>
-      </div>
+      <div id='subscr__caller' class="button caller-subscr">НЕ ПРОПУСТИТЬ СОБЫТИЕ</div>
 
+      <!--
       <div class="emailing">
         <a href="mailto:info@jbox.space?subject=Вопросы&body=У меня есть вопрос.\n">ЕСТЬ ВОПРОС? НАПИШИ НАМ!</a>
         <span class="emailing__link">info@jbox.space</span>
       </div>
+      -->
 
     </div>
   </main>
-  <script src="main.js"></script>
+  <script defer src="main.js"></script>
 </body>
 </html>
