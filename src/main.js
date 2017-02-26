@@ -51,7 +51,7 @@ function initializeClock(id, endtime) {
 
 var deadline = new Date(Date.parse(new Date(2017, 3, 1, 12, 0, 0, 0)));
 initializeClock('clock', deadline);
-//initializeMap('mapKeeper');
+initializeMap('mapKeeper');
 
 var shadow = document.getElementById('shadow');
 
