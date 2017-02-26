@@ -49,7 +49,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(Date.parse(new Date(2017, 2, 1, 12, 0, 0, 0)));
+var deadline = new Date(Date.parse(new Date(2017, 3, 1, 12, 0, 0, 0)));
 initializeClock('clock', deadline);
 //initializeMap('mapKeeper');
 
