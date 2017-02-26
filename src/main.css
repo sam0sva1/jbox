@@ -164,6 +164,11 @@ main {
   margin-top: -130px;
   box-sizing: border-box;
 }
+.descr__text {
+  font-family: CourierNew, monospace;
+  font-size: 18px;
+  padding-top: 7px;
+}
 
 .application {
   position: absolute;
@@ -386,9 +391,13 @@ h1 {
   z-index: 1;
 }
 
+
+
+.strong {
+  font-family: CourierNewBold, monospace;
+}
+
 .hide {
   display: none;
 }
-
-
 
