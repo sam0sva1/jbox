@@ -54,15 +54,26 @@ initializeClock('clock', deadline);
 //initializeMap('mapKeeper');
 
 var shadow = document.getElementById('shadow');
-var drop = document.getElementById('drop');
+
+var description = document.getElementById('description');
+var descrCaller = document.getElementById('drop');
+var descrCloser = document.getElementById('descr__close');
+
 var application = document.getElementById('application');
 var appAcception = document.querySelector('.app-acception');
 var appRejection = document.querySelector('.app-rejection');
+var appCaller = document.getElementById('app__caller');
+var appCloser = document.getElementById('app__close');
+
 var subscrAcception = document.querySelector('.subscr-acception');
 var subscrRejection = document.querySelector('.subscr-rejection');
 var subscription = document.getElementById('subscription');
+var subscrCaller = document.getElementById('subscr__caller');
+var subscrCloser = document.getElementById('subscr__close'); 
+
 var forms = {
   shadow: {},
+  description: {},
   application: {},
   subscription: {}
 };
@@ -72,6 +83,14 @@ forms.shadow.show = function() {
 forms.shadow.hide = function() {
   shadow.classList.add('hide'); 
 }
+
+forms.description.show = function() {
+  description.classList.remove('hide');
+}
+forms.description.hide = function() {
+  description.classList.add('hide'); 
+}
+
 forms.application.show = function() {
   application.classList.remove('hide');
 }
@@ -130,6 +149,16 @@ forms.subscription.show = function() {
 forms.subscription.hide = function() {
   subscription.classList.add('hide'); 
 }
+
+
+forms.showDescription = function() {
+  forms.shadow.show();
+  forms.description.show();
+}
+forms.hideDescription = function() {
+  forms.shadow.hide();
+  forms.description.hide();
+}
 forms.showApplicationForm = function() {
   forms.shadow.show();
   forms.application.show();
@@ -149,22 +178,29 @@ forms.hideSubscriptionForm = function() {
   forms.subscription.clear();
 }
 
-var appCaller = document.getElementById('app__caller');
-var appCloser = document.getElementById('app__close');
-var subscrCaller = document.getElementById('subscr__caller');
-var subscrCloser = document.getElementById('subscr__close');
+function onDescrCallerClickHandler() {
+  forms.showDescription();
+}
+function onDescrCloserClickHandler() {
+  forms.hideDescription();
+}
+
 function onAppCallerClickHandler() {
   forms.showApplicationForm();
 }
 function onAppCloserClickHandler() {
   forms.hideApplicationForm();
 }
+
 function onSubscrCallerClickHandler() {
   forms.showSubscriptionForm();
 }
 function onSubscrCloserClickHandler() {
   forms.hideSubscriptionForm();
 }
+
+descrCaller.addEventListener('click', onDescrCallerClickHandler);
+descrCloser.addEventListener('click', onDescrCloserClickHandler);
 appCaller.addEventListener('click', onAppCallerClickHandler);
 appCloser.addEventListener('click', onAppCloserClickHandler);
 subscrCaller.addEventListener('click', onSubscrCallerClickHandler);
@@ -208,13 +244,10 @@ function onSubscrSenderClickHandler() {
   });
 }
 
-function onDropClickHandler() {
-  drop.classList.toggle('drop_acted');
-}
-//drop.addEventListener('click', onDropClickHandler);
-
 appSender.addEventListener('click', onAppSenderClickHandler);
 subscrSender.addEventListener('click', onSubscrSenderClickHandler);
+
+
 
 
 
